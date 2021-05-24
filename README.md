@@ -75,7 +75,8 @@ List<HostAddress> addresses = Arrays.asList(new HostAddress("127.0.0.1", 9669),
 NebulaPool pool = new NebulaPool();
 pool.init(addresses, nebulaPoolConfig);
 Session session = pool.getSession("root", "nebula", false);
-session.execute("SHOW HOSTS;");
+ResultSet resultSet = session.execute("SHOW HOSTS;");
+System.out.println(resultSet);
 session.release();
 pool.close();
 ```
